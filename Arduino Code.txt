@@ -1,0 +1,78 @@
+int EN_Left = 3;
+int EN_Right = 5;
+int in1 = 10;
+int in2 = 9;
+int in3 = 11;
+int in4 = 12;
+
+int speed = 200;
+int IR_R = 2;
+int IR_L = 4;
+
+void forward();
+void right();
+void left();
+
+void setup() {
+  pinMode(10, OUTPUT);
+  pinMode(3, OUTPUT);
+  pinMode(5, OUTPUT);
+  pinMode(9, OUTPUT);
+  pinMode(12, OUTPUT);
+  pinMode(11, OUTPUT);
+  pinMode(4, INPUT);
+  pinMode(2, INPUT);
+
+  Serial.begin(9600);
+  analogWrite(EN_Left , speed);
+  analogWrite(EN_Right, speed);
+
+}
+
+void loop() {
+  int right_side = digitalRead(IR_R);
+  int left_side = digitalRead(IR_L);
+  if(right_side == 1 && left_side == 1) {
+    forward();
+  }
+  else if(right_side == 1 && left_side == 0){
+    left();
+  }
+  else if(right_side == 0 && left_side == 1) {
+    right();
+  }
+  else{
+    forward();
+  }
+}
+
+void forward() {
+  analogWrite(EN_Left , speed);
+  analogWrite(EN_Right, speed);
+  digitalWrite(in1, HIGH);
+  digitalWrite(in2, LOW);
+  digitalWrite(in3, LOW);
+  digitalWrite(in4 , HIGH);
+}
+void left() {
+  // analogWrite(EN_Left , 0);
+  // analogWrite(EN_Right, 0);
+  digitalWrite(in1, LOW);
+  digitalWrite(in2, HIGH);
+  digitalWrite(in3, LOW);
+  digitalWrite(in4 , HIGH);
+  // analogWrite(EN_Left, speed);
+  // analogWrite(EN_Right, speed);
+}
+void right() {
+  // analogWrite(EN_Left , 0);
+  // analogWrite(EN_Right, 0);
+  digitalWrite(in2, LOW);
+  digitalWrite(in1, HIGH);
+  digitalWrite(in4, LOW);
+  digitalWrite(in3 , HIGH);
+  analogWrite(EN_Left, speed);
+  analogWrite(EN_Right, speed);
+}
+
+//Arduino nano used with L298 motor driver, two LI-ion batteries
