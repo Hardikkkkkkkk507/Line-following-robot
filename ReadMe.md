@@ -4,19 +4,19 @@
 
 
 
-&nbsp;  \* Simple direction correction based on sensor readings.
+   \* Simple direction correction based on sensor readings.
 
-&nbsp;  \* Less stable on curves, oscillates at high speeds.
+   \* Less stable on curves, oscillates at high speeds.
 
 
 
 **2:** Using PID logic to improve stability and reduce oscillations by appropriate tuning.
 
-&nbsp;  
+ 
 
-&nbsp;  \* Much more stable at higher speeds as oscillations are near invisible.
+   \* Much more stable at higher speeds as oscillations are near invisible.
 
-&nbsp;  \* Smoother motion.
+   \* Smoother motion.
 
 
 
@@ -26,19 +26,23 @@
 
 
 
- **\*Arduino**
+**\*Arduino**
 
 
 
- **\*Embedded C**
+**\*Embedded C**
 
 
 
- **\*IR sensors**
+**\*IR sensors**
 
 
 
- **\*PID control algo -** Understanding the error calculation and appropriate correction per         		iteration of the loop to move from discrete-step corrections to continuous-		valued 	control signals.
+**\*PID control algo -** Understanding the error calculation and appropriate correction per         		iteration of the loop to move from discrete-step corrections to continuous-		valued 	control signals.
 
- 
+
+
+
+
+**Note:** Integral accumulation introduced overshoot due to rapid error changes in a moving system. Since steady-state offset was negligible, PD control was sufficient, hence Ki is set as 0.
 
