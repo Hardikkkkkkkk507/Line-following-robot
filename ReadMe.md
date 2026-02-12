@@ -46,3 +46,11 @@
 
 **Note:** Integral accumulation introduced overshoot due to rapid error changes in a moving system. Since steady-state offset was negligible, PD control was sufficient, hence Ki is set as 0.
 
+
+
+**Demo Video:**
+
+
+
+https://youtube.com/shorts/UuvTeh6uxRE
+
